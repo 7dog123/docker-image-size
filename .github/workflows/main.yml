@@ -26,8 +26,12 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: docket pull mipsel-none-elf-toolchain
         run: |
          docker pull ghcr.io/7dog123/7dog123/mipsel-none-elf-toolchain:latest
          docker images
 
+
+      - name: check size of mipsel-none-elf-toolchain
+        run: |
+         docker images
