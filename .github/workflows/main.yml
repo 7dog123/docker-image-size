@@ -27,4 +27,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: docker image inspect ghcr.io/7dog123/7dog123/mipsel-none-elf-toolchain:latest --format='{{.Size}}' 
+        run: |
+         docker pull ghcr.io/7dog123/7dog123/mipsel-none-elf-toolchain:latest
+         docker images
