@@ -30,7 +30,7 @@ jobs:
         run: |
          docker pull multiarch/qemu-user-static:register
          docker pull multiarch/debian-debootstrap:armhf-bullseye
-         docker run multiarch/qemu-user-static:register
-         docker runmultiarch/debian-debootstrap:armhf-bullseye
+         sudo docker run multiarch/qemu-user-static:register
+         sudo docker run multiarch/debian-debootstrap:armhf-bullseye
          docker images
          uname -a
