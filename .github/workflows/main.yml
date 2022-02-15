@@ -38,3 +38,6 @@ jobs:
 
       - name: updateing armhf architecture
         run: apt-get update && apt-get dist-upgrade
+
+      - name: ls /usr/bin
+        run: ls /usr/bin
