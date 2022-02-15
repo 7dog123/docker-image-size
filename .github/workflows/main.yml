@@ -30,11 +30,11 @@ jobs:
       # Runs a single command using the runners shell
       - name: update debian
         run: |
-         sudo apt-get update
-         sudo apt-get -y upgrade
+         apt-get update
+         apt-get -y upgrade
 
       - name: adding armhf architecture
-        run: sudo dpkg --add-architecture armhf
+        run: dpkg --add-architecture armhf
 
       - name: updateing armhf architecture
-        run: sudo apt update
+        run: apt update
