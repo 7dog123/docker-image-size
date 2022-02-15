@@ -32,3 +32,7 @@ jobs:
         run: |
          dpkg --print-architecture
          dpkg --print-foreign-architectures
+
+      - name: cat sources.list
+        run: cat /etc/apt/*list
+
