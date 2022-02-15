@@ -36,7 +36,7 @@ jobs:
          apt-get update
          apt-get install -yq --no-install-recommends wget bzip2
          $APT gcc-10-arm-linux-gnueabihf apt-utils gcc g++ bison flex
-         $APT texinfo file ca-certificates 
+         $APT texinfo file ca-certificates make
          $APT libstdc++6:armhf libgcc1:armhf zlib1g:armhf libncurses5:armhf 
          $APT autoconf automake elfutils:armhf libdebuginfod-dev:armhf
 
