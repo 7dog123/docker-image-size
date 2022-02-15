@@ -40,6 +40,6 @@ jobs:
          $APT libstdc++6:armhf libgcc1:armhf zlib1g:armhf libncurses5:armhf 
          $APT autoconf automake elfutils:armhf libdebuginfod-dev:armhf
 
-     # - name:
-     #   run: |
-        # ./build.sh
+      - name:
+        run: |
+         ./build.sh
