@@ -29,5 +29,5 @@ jobs:
       - name: test
         run: |
          docker run --rm --privileged multiarch/qemu-user-static:register --reset
-         docker run -it --rm multiarch/debian-debootstrap:armhf-bullseye
+         docker run -i --rm multiarch/debian-debootstrap:armhf-bullseye
          docker images
