@@ -28,11 +28,13 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: docket pull mipsel-none-elf-toolchain
+      - name: update debian
         run: |
-         dpkg --print-architecture
-         dpkg --print-foreign-architectures
+         sudo apt-get update
+         sudo apt-get -y upgrade
 
-      - name: cat sources.list
-        run: cat /etc/apt/*list
+      - name: adding armhf architecture
+        run: sudo dpkg --add-architecture armhf
 
+      - name: updateing armhf architecture
+        run: sudo apt update
