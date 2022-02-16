@@ -49,11 +49,11 @@ test -f "gcc-$GCC_V.tar.gz"           || download "https://ftp.gnu.org/gnu/gcc/g
 test -d "binutils-$BINUTILS_V" || tar -xzf "binutils-$BINUTILS_V.tar.gz"
 test -d "gcc-$GCC_V"           || tar -xzf "gcc-$GCC_V.tar.gz"
 
-pushd "gcc-$GCC_V"
-./contrib/download_prerequisites 1>/dev/null 2>&1
+# Compile binutils
+pushd binutils-$BINUTILS_V
+sed -i "/ac_cpp=/s/\$CPPFLAGS/\$CPPFLAGS -O2/" libiberty/configure
 popd
 
-# Compile binutils
 mkdir binutils_mips
 pushd binutils_mips
 ../"binutils-$BINUTILS_V"/configure --quiet \
@@ -65,6 +65,11 @@ make --quiet -j "$JOBS"  install-strip
 popd
 
 # Compile GCC for MIPSEL
+pushd "gcc-$GCC_V"
+./contrib/download_prerequisites 1>/dev/null 2>&1
+sed -i "/ac_cpp=/s/\$CPPFLAGS/\$CPPFLAGS -O2/" {libiberty,gcc}/configure
+popd
+
 mkdir gcc_mips
 pushd gcc_mips
 ../"gcc-$GCC_V"/configure --quiet \
