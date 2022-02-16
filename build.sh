@@ -58,7 +58,7 @@ mkdir binutils_mips
 pushd binutils_mips
 ../"binutils-$BINUTILS_V"/configure --quiet \
   --prefix="$INSTALL_PATH" --target=${TARGET} \
-  --build=x86_64-linux-gnu --host=arm-linux-gnueabihf \
+  --build=arm-linux-gnueabihf --host=arm-linux-gnueabihf \
   --disable-docs --disable-nls --with-float=soft
 make --quiet -j "$JOBS"
 make --quiet -j "$JOBS"  install-strip
@@ -75,7 +75,7 @@ pushd gcc_mips
 ../"gcc-$GCC_V"/configure --quiet \
   --prefix="$INSTALL_PATH" --target=${TARGET} \
   --disable-docs --disable-nls --disable-libada \
-  --build=x86_64-linux-gnu --host=arm-linux-gnueabihf \
+  --build=arm-linux-gnueabihf --host=arm-linux-gnueabihf \
   --disable-libssp --disable-libquadmath \
   --disable-libstdc++-v3 --with-float=soft \
   --enable-languages="c,c++" --with-gnu-as --with-gnu-ld
