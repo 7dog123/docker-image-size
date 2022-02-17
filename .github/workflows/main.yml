@@ -27,19 +27,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: armhf architecture
+      - name: docker pull
         run: |
-         export APT="apt-get install -yq"
-         apt-get update
-         apt-get -y upgrade
-         dpkg --add-architecture armhf
-         apt-get update
-         $APT wget bzip2 dpkg-dev dpkg-cross cross-gcc-dev
-         $APT crossbuild-essential-armhf apt-utils bison flex
-         $APT texinfo file ca-certificates gcc-multilib
-         $APT libstdc++6:armhf libgcc1:armhf zlib1g:armhf libncurses5:armhf 
-         $APT autoconf automake elfutils:armhf libdebuginfod-dev:armhf
-
-      - name:
-        run: |
-         ./build.sh
+         docker pull ghcr.io/7dog123/7dog123/mipsel-armhf:latest
+         docker images
