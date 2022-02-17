@@ -25,7 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: install deps for multi-arch
+        run: |
+         sudo apt-get update -q -y
+         sudo apt-get -qq install -y qemu qemu-user-static
+         docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
       - name: docker pull
         run: |
          docker pull ghcr.io/7dog123/7dog123/mipsel-armhf:latest
-         docker images
+         docker run ghcr.io/7dog123/7dog123/mipsel-armhf:latest   
