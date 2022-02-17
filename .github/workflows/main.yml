@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  docker-deps:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -31,4 +31,15 @@ jobs:
          sudo apt-get -qq install -y qemu qemu-user-static
          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
          docker pull ghcr.io/7dog123/7dog123/mipsel-armhf:latest
-         docker run ghcr.io/7dog123/7dog123/mipsel-armhf:latest   
+
+  docker-container:
+    runs-on: ubuntu-latest
+    container: 
+       image: ghcr.io/7dog123/7dog123/mipsel-armhf:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: ls
+        run: ls
