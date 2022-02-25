@@ -28,5 +28,7 @@ jobs:
 
       - name: install deps for multi-arch
         run: |
-         ls /opt
+         INSTALL_DIR="/opt/toolchains/dc"
+         KOS="$INSTALL_DIR/kos"
+         ls $KOS
   
